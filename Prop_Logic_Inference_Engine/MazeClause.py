@@ -1,4 +1,6 @@
 '''
+Nicolas Le Gorrec
+
 MazeClause.py
 
 Specifies a Propositional Logic Clause formatted specifically
@@ -70,7 +72,7 @@ class MazeClause:
                         return results
                     allProps = [item for item in allProps if item[0] != prop]
                     count += 1
-                    
+
         if len(allProps) == 0:
             if len(c1.props) == 1 and len(c2.props) == 1:
                 results.add(MazeClause([]))
@@ -121,10 +123,10 @@ class MazeClauseTests(unittest.TestCase):
 
     def test_mazeprops7(self):
         mc1 = MazeClause([(("X", (1, 1)), True), (("Y", (1, 1)), True)])
-        mc2 = MazeClause([(("X", (1, 1)), False), (("Y", (2, 2)), True)])
+        mc2 = MazeClause([(("X", (1, 1)), False)])
         res = MazeClause.resolve(mc1, mc2)
         self.assertEqual(len(res), 1)
-        self.assertTrue(MazeClause([(("Y", (1, 1)), True), (("Y", (2, 2)), True)]) in res)
+        self.assertTrue(MazeClause([(("Y", (1, 1)), True)]) in res)
 
     def test_mazeprops8(self):
         mc1 = MazeClause([(("X", (1, 1)), True), (("Y", (1, 1)), False)])
